@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Http\Resources\{{ module }}\{{ names }}\{{ name }}Collection;
+use App\Http\Resources\{{ module }}\{{ names }}\{{ name }}Resource;
+use App\Repositories\{{ module }}\{{ names }}\{{ name }}Repository;
+use {{ contract }};
+use App\Services\Shared\BaseService;
+
+class {{ name }}Service extends BaseService implements {{ name }}ServiceInterface
+{
+    public function __construct({{ name }}Repository $repository)
+    {
+        parent::__construct($repository, {{ name }}Resource::class, {{ name }}Collection::class);
+    }
+}

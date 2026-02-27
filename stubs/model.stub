@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ namespace }};
+
+{{ factoryImport }}
+use App\Models\Shared\BaseModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use eloquentFilter\QueryFilter\ModelFilters\Filterable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
+
+class {{ class }} extends BaseModel
+{
+    use HasFactory, SoftDeletes, Filterable;
+    
+    protected $fillable = [
+        'public_id',
+        'created_at',
+        'updated_at',
+    ];
+
+    {{ factory }}
+}

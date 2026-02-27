@@ -1,0 +1,16 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ model }};
+use {{ contract }};
+use App\Repositories\Shared\BaseRepository;
+use Illuminate\Http\Request;
+
+class {{ name }}Repository extends BaseRepository implements {{ name }}RepositoryInterface
+{
+    public function __construct({{ name }} $model)
+    {
+        parent::__construct($model);
+    }
+}

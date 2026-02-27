@@ -1,0 +1,7 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ interfaceBasePath }};
+
+interface {{ name }} extends {{ interfaceBase }} {}
