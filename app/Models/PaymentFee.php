@@ -1,23 +1,20 @@
 <?php
 
-namespace App\Models\Participants;
+namespace App\Models;
 
 use App\Models\Shared\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use eloquentFilter\QueryFilter\ModelFilters\Filterable;
 
-class Participant extends BaseModel
+class PaymentFee extends BaseModel
 {
-    use HasFactory, SoftDeletes, Filterable;
-    
+    use HasFactory, SoftDeletes;
+
     protected $fillable = [
         'public_id',
-        'name',
-        'email',
-        'document',
-        'type',
-        'balance',
+        'payer_id',
+        'receiver_id',
+        'value',
         'created_at',
         'updated_at',
     ];

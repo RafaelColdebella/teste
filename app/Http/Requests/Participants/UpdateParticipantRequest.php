@@ -25,6 +25,7 @@ class UpdateParticipantRequest extends FormRequest
             'name' => 'sometimes|required|string|max:255',
             'email' => 'sometimes|required|email|unique:participants,email,' . $this->route('participant'),
             'document' => 'sometimes|required|string|max:20',
+            'balance' => 'sometimes|numeric|min:0',
             'type' => 'sometimes|required|in:payer,receiver',
         ];
     }

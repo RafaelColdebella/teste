@@ -25,6 +25,7 @@ class StoreParticipantRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:participants',
             'document' => 'required|string|max:20',
+            'balance' => 'required|numeric|min:0',
             'type' => 'required|in:payer,receiver',
         ];
     }
