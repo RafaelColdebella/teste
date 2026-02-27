@@ -17,7 +17,7 @@ class PaymentResource extends JsonResource
         return [
             "id" => $this->public_id,
             "status" => $this->status,
-            "specie_id" => $this->specie->public_id,
+            "specie_id" => $this->specie,
             "value" => $this->value,
             "transaction_tax" => $this->transaction_tax,
             "paid_by" => $this->payer->public_id,
