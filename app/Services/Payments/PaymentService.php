@@ -90,7 +90,7 @@ class PaymentService extends BaseService implements PaymentServiceInterface
                     if ($receiver || $payer) {
                         $receiverBalance['newBalance'] = $receiver->balance + ($payment->value - $tax);
 
-                        $payerBalance['newBalance'] = $payer->balance - ($payment->value - $tax);
+                        $payerBalance['newBalance'] = $payer->balance - ($payment->value);
 
                         $this->participantRepo->updateBalance($receiverBalance['newBalance'], $receiver->id);
 
