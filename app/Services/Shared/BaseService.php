@@ -12,9 +12,9 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 abstract class BaseService implements BaseServiceInterface
 {
-    public const MESSAGE_STORE_SUCCESS = 'MESSAGE_STORE_SUCCESS';
+    public const MESSAGE_STORE_SUCCESS = 'Registro criado com sucesso';
     public const MESSAGE_STORE_FAIL = 'Não foi possível criar o registro';
-    public const MESSAGE_UPDATE_SUCCESS = 'Registro atualizado';
+    public const MESSAGE_UPDATE_SUCCESS = 'Registro atualizado com sucesso';
     public const MESSAGE_UPDATE_FAIL = 'Não foi possível atualizar o registro';
     public const MESSAGE_DELETE_SUCCESS = 'Registro excluído';
     public const MESSAGE_DELETE_FAIL = 'Não foi possível excluir o registro';
@@ -28,7 +28,7 @@ abstract class BaseService implements BaseServiceInterface
     ) {}
 
     public function getMessage(string $key){
-        return  __('messages.' . $key);
+        return  __($key);
     }
 
     /**

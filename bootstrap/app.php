@@ -19,8 +19,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->validateCsrfTokens(except: [
             '*',
         ]);
-
-        $middleware->append(MiddlewareTranslation::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function(ValidationException $e) {

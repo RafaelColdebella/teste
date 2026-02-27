@@ -14,7 +14,7 @@ class Make extends Command
      *
      * @var string
      */
-    protected $signature = 'make {module} {name} {plural}';
+    protected $signature = 'make {name} {plural}';
     
     /**
      * The console command description.
@@ -35,19 +35,19 @@ class Make extends Command
 
         try {
             $this->info('Iniciando criação da estrutura...');
-            array_push($commands, 'make:model ' . $this->stringToPath('model', $arguments['module']) .  '/' . $arguments['plural'] . '/' . $arguments['name']);
-            array_push($commands, 'make:migration ' .  $arguments['plural'] . ' --path=' . $this->stringToPath('migration', $arguments['module']));
-            array_push($commands, 'make:controller ' . $this->stringToPath('controller', $arguments['module']) . '/' . $arguments['plural'] . '/' . $arguments['name'] . 'Controller');
-            array_push($commands, 'make:request ' . $this->stringToPath('request', $arguments['module']) . '/' .  $arguments['plural'] . '/' . 'Store' . $arguments['name'] . 'Request');
-            array_push($commands, 'make:request ' . $this->stringToPath('request', $arguments['module']) . '/' .  $arguments['plural'] . '/' . 'Update' . $arguments['name'] . 'Request');
-            array_push($commands, 'make:resource ' . $this->stringToPath('resource', $arguments['module']) . '/' .  $arguments['plural'] . '/' . $arguments['name'] . 'Resource');
-            array_push($commands, 'make:resource ' . $this->stringToPath('resource', $arguments['module']) . '/' .  $arguments['plural'] . '/' . $arguments['name'] . 'Collection');
+            array_push($commands, 'make:model ' . $arguments['plural'] . '/' . $arguments['name']);
+            array_push($commands, 'make:migration ' . $arguments['plural']);
+            array_push($commands, 'make:controller ' . $arguments['plural'] . '/' . $arguments['name'] . 'Controller');
+            array_push($commands, 'make:request ' . $arguments['plural'] . '/' . 'Store' . $arguments['name'] . 'Request');
+            array_push($commands, 'make:request ' . $arguments['plural'] . '/' . 'Update' . $arguments['name'] . 'Request');
+            array_push($commands, 'make:resource ' . $arguments['plural'] . '/' . $arguments['name'] . 'Resource');
+            array_push($commands, 'make:resource ' . $arguments['plural'] . '/' . $arguments['name'] . 'Collection');
 
-            array_push($commands, 'make:repository ' . $this->stringToPath('repository', $arguments['module']) . '/' . $arguments['plural'] . '/' . $arguments['name'] . 'Repository ' . $arguments['plural']);
-            array_push($commands, 'make:interface Repositories/' . $this->stringToPath('interface', $arguments['module']) . '/' .  $arguments['plural'] . '/Contracts/' . $arguments['name'] . 'RepositoryInterface');
+            array_push($commands, 'make:repository ' . $arguments['plural'] . '/' . $arguments['name'] . 'Repository ' . $arguments['plural']);
+            array_push($commands, 'make:interface Repositories/' . $arguments['plural'] . '/Contracts/' . $arguments['name'] . 'RepositoryInterface');
 
-            array_push($commands, 'make:service ' . $this->stringToPath('service', $arguments['module']) . '/' .  $arguments['plural'] . '/' . $arguments['name'] . 'Service ' .  $arguments['plural']);
-            array_push($commands, 'make:interface Services/' . $this->stringToPath('interface', $arguments['module']) . '/' .  $arguments['plural'] . '/Contracts/' . $arguments['name'] . 'ServiceInterface');
+            array_push($commands, 'make:service ' . $arguments['plural'] . '/' . $arguments['name'] . 'Service ' .  $arguments['plural']);
+            array_push($commands, 'make:interface Services/' . $arguments['plural'] . '/Contracts/' . $arguments['name'] . 'ServiceInterface');
 
             foreach ($commands as $command) {
                 Artisan::call($command);
