@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('participants', function (Blueprint $table) {
+        Schema::create('species', function (Blueprint $table) {
             $table->id();
             $table->uuid('public_id')->unique();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('document');
-            $table->enum('type', ['payer', 'receiver']);
-            $table->decimal('balance', 15, 2)->default(0);
+            $table->string('name', 50);
+            $table->decimal('tax', 15, 2)->default(0.00);
             $table->timestamps();
 
             $table->softDeletes();
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('participants');
+        Schema::dropIfExists('species');
     }
 };

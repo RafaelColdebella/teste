@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Participants;
+namespace App\Http\Resources\Species;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ParticipantResource extends JsonResource
+class SpecieResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +17,8 @@ class ParticipantResource extends JsonResource
         return [
             "id" => $this->public_id,
             "name" => $this->name,
-            "email" => $this->email,
-            "type" => $this->type,
-            "balance" => $this->balance
+            "tax" => $this->tax,
+            "created_at" => $this->created_at
         ];
     }
 }
